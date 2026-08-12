@@ -16,3 +16,11 @@ CREATE TABLE borrow (
     FOREIGN KEY (Student_id) REFERENCES student(Student_id),
     FOREIGN KEY (Book_id) REFERENCES book(Book_id)
 );
+
+
+CREATE TABLE book (
+    Book_id INT AUTO_INCREMENT PRIMARY KEY,
+    Book_title VARCHAR(150) NOT NULL,
+    Author VARCHAR(100),
+    Published_year YEAR
+);

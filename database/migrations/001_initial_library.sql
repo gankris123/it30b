@@ -16,4 +16,4 @@ CREATE TABLE IF NOT EXISTS students (
 
 )ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
-COLLATE=utf9mb4_general_ci;
+COLLATE=utf8mb4_general_ci;

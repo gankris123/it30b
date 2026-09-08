@@ -66,3 +66,33 @@ CONSTRAINT fk_borrow_book
 )ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_general_ci;  
+
+-- Insert statement #1: Insert Students
+INSERT INTO students( 
+    student_first_name,
+    student_last_name,
+    student_course
+)VALUES
+('GANKRIS', 'MODESTO', 'BSIT'),
+('JOHNY', 'DEPP', 'PIRATE'),
+('JAMES', 'BRON', 'PLAYER'),
+('CONAN', 'GREY', 'SINGER');
+
+-- Insert statement #2: Insert Books
+INSERT INTO books(
+    book_title,
+    book_author,
+    book_category
+)VALUES
+('MR. & MS. SMITH', 'FRANCIS AUGUIS', 'ACTION'),
+('MISTAH', 'JAMES BOND', 'ACTION & ADVENTURE'),
+('ANG PROBINSYANO', 'COCO MARTIN', 'AGENT & DOCTOR');
+
+--Insert statement #3: Insert Borrow
+INSERT INTO borrow(
+    student_id,
+    book_id
+)VALUES
+(1, 2),
+(2, 3),
+(3, 1);

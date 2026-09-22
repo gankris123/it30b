@@ -74,9 +74,9 @@ INSERT INTO students(
     student_course
 )VALUES
 ('GANKRIS', 'MODESTO', 'BSIT'),
-('JOHNY', 'DEPP', 'PIRATE'),
-('JAMES', 'BRON', 'PLAYER'),
-('CONAN', 'GREY', 'SINGER');
+('JOHNY', 'DEPP', 'BEED'),
+('JAMES', 'BRON', 'BSBA'),
+('CONAN', 'GREY', 'BSCRIM');
 
 -- Insert statement #2: Insert Books
 INSERT INTO books(
@@ -84,9 +84,9 @@ INSERT INTO books(
     book_author,
     book_category
 )VALUES
-('MR. & MS. SMITH', 'FRANCIS AUGUIS', 'ACTION'),
-('MISTAH', 'JAMES BOND', 'ACTION & ADVENTURE'),
-('ANG PROBINSYANO', 'COCO MARTIN', 'AGENT & DOCTOR');
+('The Chronicles of Narnia', 'C.S. Lewis', 'Fantasy'),
+('Dune', 'Frank Herbert', 'Science Fiction'),
+('The Hunger Games', 'Suzanne Collins', 'Young Adult');
 
 -- Insert statement #3: Insert Borrow
 INSERT INTO borrow(

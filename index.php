@@ -97,7 +97,7 @@ if($section==='students' && $action==='update'){
     $firstName = trim($_POST['student_first_name'] ?? '');
     $lastName = trim($_POST['student_last_name'] ?? '');
     $course = trim($_POST['student_course'] ?? '');
-    
+
         $sql=("
             UPDATE STUDENTS
             SET
@@ -218,7 +218,7 @@ if($section==='students' && $action==='update'){
                 </p>
 
                 <button type="submit">
-                    Save
+                    Update
                 </button>
 
                 <a href="index.php?section=students">
@@ -227,7 +227,7 @@ if($section==='students' && $action==='update'){
             </form>
 
         <?php else: ?>
-            <table>
+            <table border="1" cellpadding="8">
             <thead>
                 <tr>
                     <th>ID</th>

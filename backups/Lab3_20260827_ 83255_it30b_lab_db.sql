@@ -1,6 +1,6 @@
 -- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: library_db
+-- Host: localhost    Database: it30b_lab_db
 -- ------------------------------------------------------
 -- Server version	10.4.32-MariaDB
 
@@ -16,12 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `library_db`
+-- Current Database: `it30b_lab_db`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `library_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `it30b_lab_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 
-USE `library_db`;
+USE `it30b_lab_db`;
 
 --
 -- Table structure for table `books`
@@ -100,7 +100,7 @@ CREATE TABLE `students` (
 
 --
 -- Dumping data for table `students`
---
+--  
 
 LOCK TABLES `students` WRITE;
 /*!40000 ALTER TABLE `students` DISABLE KEYS */;

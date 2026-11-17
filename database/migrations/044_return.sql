@@ -2,7 +2,7 @@
 SELECT 
      br.borrow_id,
 
-     --Student Full Name
+     -- Student Full Name
      CONCAT(
         s.student_first_name,
         ' ',
@@ -37,7 +37,7 @@ WHERE borrow_id = 4
 SELECT 
      br.borrow_id,
 
-     --Student Full Name
+     -- Student Full Name
      CONCAT(
         s.student_first_name,
         ' ',

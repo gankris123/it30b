@@ -19,7 +19,6 @@ try {
     die("Database connection failed: " . $e->getMessage());
 }
 
-
 // ---------- 1. KPI COUNTS ----------
 $studentCount  = $pdo->query("SELECT COUNT(*) FROM students")->fetchColumn();
 $bookCount     = $pdo->query("SELECT COUNT(*) FROM books")->fetchColumn();
@@ -27,16 +26,19 @@ $totalBorrows  = $pdo->query("SELECT COUNT(*) FROM borrow")->fetchColumn();
 $activeBorrows = $pdo->query("SELECT COUNT(*) FROM borrow WHERE borrow_return_date IS NULL")->fetchColumn();
 
 // ---------- 2. BOOKS BY CATEGORY ----------
+
 $catStmt = $pdo->query("
     SELECT book_category, COUNT(*) AS cnt
     FROM books
     GROUP BY book_category
     ORDER BY cnt DESC
 ");
+
 $categories = [];
 $categoryCounts = [];
+
 while ($row = $catStmt->fetch()) {
-    $categories[]     = $row['book_category'];
+    $categories[] = $row['book_category'];
     $categoryCounts[] = (int) $row['cnt'];
 }
 
@@ -327,22 +329,24 @@ while ($row = $catStmt->fetch()) {
 <!-- CHARTS -->
 <div class="charts-grid">
 
-    <!-- Pie Chart - Book Categories-->
+    <!-- Doughnut Chart: Books by Category -->
     <div class="chart-card">
         <div class="chart-title">
             Books by category
+
             <span>
                 <span class="material-icons">category</span>
                 collection
             </span>
         </div>
+
         <canvas id="categoryChart" width="400" height="200"></canvas>
     </div>
 
-</div>
+    </div>
 
 <script>
-    (function() {
+    (function () {
         // Materialize standard palette
         const colors = {
             blue: '#1976d2',
@@ -353,38 +357,55 @@ while ($row = $catStmt->fetch()) {
             grey: '#9e9e9e'
         };
 
-        // ---------- DOUGHNUT : BOOKS BY CATEGORY ----------
-        const catCtx = document.getElementById('categoryChart').getContext('2d');
+        // ---------- DOUGHNUT: BOOKS BY CATEGORY ----------
+        const catCtx = document
+            .getElementById('categoryChart')
+            .getContext('2d');
+
         new Chart(catCtx, {
             type: 'doughnut',
+
             data: {
                 labels: <?= json_encode($categories) ?>,
+
                 datasets: [{
                     data: <?= json_encode($categoryCounts) ?>,
                     backgroundColor: [
-                        colors.blue, colors.green, colors.orange, colors.red, colors.purple, colors.grey
+                        colors.blue,
+                        colors.green,
+                        colors.orange,
+                        colors.red,
+                        colors.purple,
+                        colors.grey
                     ],
                     borderWidth: 2,
                     borderColor: '#ffffff',
                     hoverOffset: 4
                 }]
             },
+
             options: {
                 responsive: true,
                 maintainAspectRatio: true,
                 cutout: '65%',
+
                 plugins: {
                     legend: {
                         position: 'bottom',
+
                         labels: {
                             boxWidth: 12,
                             boxHeight: 12,
-                            usePointStyle: false, // Materialize usually uses squares
+                            usePointStyle: false,
                             padding: 16,
-                            font: { size: 12, family: 'Roboto' },
+                            font: {
+                                size: 12,
+                                family: 'Roboto'
+                            },
                             color: '#616161'
                         }
                     },
+
                     tooltip: {
                         backgroundColor: '#212121',
                         titleColor: '#ffffff',
@@ -392,12 +413,21 @@ while ($row = $catStmt->fetch()) {
                         padding: 10,
                         cornerRadius: 4,
                         displayColors: true,
+
                         callbacks: {
-                            label: function(context) {
+                            label: function (context) {
                                 const label = context.label || '';
                                 const value = context.parsed || 0;
-                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                const pct = total > 0 ? ((value / total) * 100).toFixed(0) : 0;
+
+                                const total = context.dataset.data.reduce(
+                                    (a, b) => a + b,
+                                    0
+                                );
+
+                                const pct = total > 0
+                                    ? ((value / total) * 100).toFixed(0)
+                                    : 0;
+
                                 return ` ${label}: ${value} (${pct}%)`;
                             }
                         }

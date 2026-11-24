@@ -1,24 +1,11 @@
-<?php 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
-<body>
-
-    <?php include 'includes/navbar.php' ?>
-    
-</body>
-</html>
+<?php
 $currentSection = $_GET['section'] ?? 'dashboard';
 
 function navActive($section, $currentSection){
     return $section === $currentSection ? 'active' : '';
 }
 ?>
+
 
 <!-- Material Icon -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

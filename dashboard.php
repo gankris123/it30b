@@ -1,5 +1,4 @@
 <?php 
-// Database Connection
 $host = 'localhost';
 $db   = 'it30b_lab_db';
 $user = 'root';

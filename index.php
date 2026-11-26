@@ -289,6 +289,7 @@ if($section==='borrow' && $action==='return'){
 <body>
     <h1>Simple Library System</h1>
     <nav>
+        
         <a href="index.php?section=students">Students</a>
         <a href="index.php?section=books">Books</a>
         <a href="index.php?section=borrow">Borrow</a>
@@ -373,9 +374,9 @@ if($section==='borrow' && $action==='return'){
                 </a>
             </form>
         <?php else: ?>
-              <table border="1" cellpadding="8">
+            <table border="1" cellpadding="8">
                     <thead>
-            <table>
+          
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -556,7 +557,7 @@ if($section==='borrow' && $action==='return'){
                 <br>
                 <select name=student_id required>
                     <option value="">
-                        -- Select Student--
+                        -- Select Student --
                     </option>
                     <?php foreach($students as $student): ?>
                         <option value="<?= $student['student_id']?> ">

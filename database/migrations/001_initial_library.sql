@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS borrow (
         ON DELETE RESTRICT,
 
     CONSTRAINT fk_borrow_book
-        FOREIGN KEY (borrow_id)
+        FOREIGN KEY (book_id)
         REFERENCES books(book_id)
         ON UPDATE CASCADE
         ON DELETE RESTRICT
